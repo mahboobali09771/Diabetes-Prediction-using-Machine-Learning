@@ -19,13 +19,13 @@ if st.button("Predict"):
 
     input_data = np.array([[preg,glucose,bp,skin,insulin,bmi,dpf,age]])
 
- prob = model.predict_proba(input_data)[0][1]
+    prob = model.predict_proba(input_data)[0][1]
 
-if prob < 0.3:
-    st.success(f"Low future diabetes risk ({prob*100:.2f}%)")
+    if prob < 0.3:
+        st.success(f"Low future diabetes risk ({prob*100:.2f}%)")
 
-elif prob < 0.7:
-    st.warning(f"Moderate future diabetes risk ({prob*100:.2f}%)")
+    elif prob < 0.7:
+        st.warning(f"Moderate future diabetes risk ({prob*100:.2f}%)")
 
-else:
-    st.error(f"High future diabetes risk ({prob*100:.2f}%)")
+    else:
+        st.error(f"High future diabetes risk ({prob*100:.2f}%)")
